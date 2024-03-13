@@ -1,0 +1,44 @@
+﻿@model SignInViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+<section id="signin">
+    <div class="container">
+        <form method="post" novalidate>
+            <h1> Welcome Back</h1>
+            <p> Dont have an account yet?<a asp-page="/singup"> Sign up here</a></p>
+
+            <div class="content">
+                <div id="form-email" class="input-group">
+                    <label asp-for="@Model.Form.Email"></label>
+                    <span asp-validation-for="@Model.Form.Email"></span>
+                    <input asp-for="@Model.Form.Email" placeholder=" Email" />
+
+                </div>
+                <div id="form-passsword" class="input-group">
+                    <label asp-for="@Model.Form.Password"></label>
+                    <span asp-validation-for="@Model.Form.Password"></span>
+                    <input asp-for="@Model.Form.Password" placeholder="  Password" type="password" />
+
+                </div>
+
+
+
+                <button id="form-buttom" class="btn-theme-s" type="submit"> Sign in</button>
+                <a id="forgot-password" asp-page="/forgot"> Forgot your password</a>
+                <hr>
+                <div id="external-signin">
+                    <a class="btn-gray" asp-page="/external/google"><i class="fa-brands fa-google"></i>Google</a>
+                    <a class="btn-gray" asp-page="/external/facebook"><i class="fa-brands fa-facebook-f"></i>Facebook</a>
+                </div>
+
+            </div>
+
+
+
+
+        </form>
+
+
+    </div>
+</section>
