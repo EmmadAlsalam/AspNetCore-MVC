@@ -1,13 +1,28 @@
 ﻿using AspNetCore_MVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
-namespace AspNetCore_MVC.ViewModels
+namespace AspNetCore_MVC.ViewModels;
+
+public class SignInViewModel
 {
-    public class SignInViewModel
-    {
-        public string Title { get; set; } = "Sign In";
+    [DataType(DataType.EmailAddress)]
+    [DisplayName("Email adress")]
+    [Required(ErrorMessage = "Invalid Email adress")]
+    [RegularExpression("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", ErrorMessage = "Invalid email")]
+    public string Email { get; set; } = null!;
 
-        [BindProperty]
-        public SignInModel Form { get; set; } = new SignInModel();
-    }
+
+
+    [DataType(DataType.Password)]
+    [DisplayName("Password")]
+    [Required(ErrorMessage = "Invalid Password")]
+
+    public string Password { get; set; } = null!;
+
+
+
+    public bool RememberMe { get; set; } 
 }
+

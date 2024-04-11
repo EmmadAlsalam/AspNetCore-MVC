@@ -1,0 +1,71 @@
+form {
+    width: 100%;
+    display: grid;
+
+    .input-group {
+        display: grid;
+    }
+
+    .checkbox-group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+
+        .field-validation-error {
+            border: 2px solid red;
+            background-color: #FFE6E6;
+            color: #FF0000;
+            animation: blinker 1s linear infinite;
+        }
+
+
+
+
+        input [type="checkbox"] {
+            height: 1.2rem;
+            width: 1.2rem;
+        }
+
+        label {
+            margin: 0px;
+            font-weight: 400;
+        }
+
+        .input-validation-error {
+            border: 2px solid red;
+            background-color: #FFE6E6;
+        }
+    }
+
+    label {
+        margin-bottom: 3px;
+        font-weight:700;
+    }
+
+    input {
+        padding: 1rem;
+        border-radius: 8px !important;
+        border: 1px solid $gray-400;
+
+        &::placeholder {
+            opacity: 0,4;
+        }
+
+
+        &.input-validation-error {
+            border: 2px solid red;
+            background-color: #FFE6E6;
+            color: #FF0000;
+
+            &::placeholder {
+                color: #FF0000;
+            }
+        }
+
+        .field-validation-error {
+            color: red;
+            font-size: 14px;
+        }
+    }
+}

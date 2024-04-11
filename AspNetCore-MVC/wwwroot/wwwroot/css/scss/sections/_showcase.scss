@@ -1,0 +1,116 @@
+#showcase {
+    position: relative;
+    margin-bottom: 180px;
+
+    img {
+        position: relative;
+        z-index: -1;
+        width: 100%;
+    }
+
+    .container {
+        height: 100%;
+
+        .content {
+            margin-top: 0px;
+            width: 100%;
+            text-align: center;
+
+            h1 {
+                line-height: 160%;
+                font-weight: 400;
+                color: #565973;
+                font-family: "Manrope", sans-serif;
+                font-weight: 800;
+                color: #0B0F19;
+                font-size: 32px !important;
+            }
+
+            p {
+                margin: 20px 0 40px 0;
+                line-height: 160%;
+                font-weight: 400;
+                color: #565973;
+                font-family: "Manrope", sans-serif;
+                font-size: 16px !important;
+            }
+
+            .btn-theme-s {
+                display: inline-block;
+            }
+
+            h6 {
+                margin: 150px 0 30px 0;
+                display: flex;
+            }
+
+            .brands {
+                display: none;
+                gap: 300px;
+
+                img {
+                    width: 120px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase img {
+        width: 45%;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase .container {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase .container .content {
+        margin-top: 100px;
+        width: 40%;
+        text-align: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase .container .content h1 {
+        line-height: 160%;
+        font-weight: 400;
+        color: #565973;
+        font-family: "Manrope", sans-serif;
+        font-weight: 800;
+        color: #0B0F19;
+        font-size: 56px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase .container .content p {
+        margin: 40px 0 50px 0;
+        line-height: 160%;
+        font-weight: 400;
+        color: #565973;
+        font-family: "Manrope", sans-serif;
+        font-size: 18px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .showcase .container .content .brands {
+        display: flex;
+    }
+}

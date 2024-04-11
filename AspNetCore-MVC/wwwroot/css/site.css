@@ -354,6 +354,62 @@ a:hover {
   color: #FFFFFF;
 }
 
+form {
+  width: 100%;
+  display: grid;
+}
+form .input-group {
+  display: grid;
+}
+form .checkbox-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+form .checkbox-group .field-validation-error {
+  border: 2px solid red;
+  background-color: #FFE6E6;
+  color: #FF0000;
+  animation: blinker 1s linear infinite;
+}
+form .checkbox-group input [type=checkbox] {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+form .checkbox-group label {
+  margin: 0px;
+  font-weight: 400;
+}
+form .checkbox-group .input-validation-error {
+  border: 2px solid red;
+  background-color: #FFE6E6;
+}
+form label {
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+form input {
+  padding: 1rem;
+  border-radius: 8px !important;
+  border: 1px solid #D4D7E5;
+}
+form input::placeholder {
+  opacity: 0, 4;
+}
+form input.input-validation-error {
+  border: 2px solid red;
+  background-color: #FFE6E6;
+  color: #FF0000;
+}
+form input.input-validation-error::placeholder {
+  color: #FF0000;
+}
+form .field-validation-error {
+  color: red;
+  font-size: 14px;
+}
+
 header {
   padding: 15px 0;
 }
@@ -413,6 +469,62 @@ header .container .btn-mobile {
   header .container .btn-mobile {
     display: none;
   }
+}
+
+#signup {
+  height: 100%;
+}
+#signup .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  #signup .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signup .container {
+    width: 45%;
+  }
+}
+#signup .container form {
+  width: 100%;
+  display: grid;
+  gap: 0;
+}
+#signup .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+}
+@media (min-width: 768px) {
+  #signup .container form .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+  }
+}
+#signup .container form .content #form-firstname {
+  grid-area: firstname;
+}
+#signup .container form .content #form-lastname {
+  grid-area: lastname;
+}
+#signup .container form .content #form-email {
+  grid-area: email;
+}
+#signup .container form .content #form-password {
+  grid-area: password;
+}
+#signup .container form .content #form-confirm {
+  grid-area: confirm;
+}
+#signup .container form .content #form-terms {
+  grid-area: terms;
+}
+#signup .container form .content #form-button {
+  grid-area: button;
 }
 
 .showcase {
@@ -626,6 +738,181 @@ header .container .btn-mobile {
   padding-left: 20px;
 }
 
+.iSection3 {
+  padding: 100px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec3 {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.secLeft3 {
+  flex: 1;
+}
+.secLeft3 img {
+  width: 600px;
+}
+
+.secRight3 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.secRight3 h5 {
+  font-size: 25px;
+}
+.secRight3 ul {
+  list-style-type: none;
+}
+.secRight3 ul li {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.secRight3 ul li i {
+  color: #6366F1;
+}
+.secRight3 div {
+  background-color: #6366F1;
+  color: #fff;
+  width: 120px;
+  height: 35px;
+  font-size: 12px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.03);
+  -webkit-box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.03);
+  -moz-box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, 0.03);
+}
+.secRight3 div i {
+  margin-left: 10px;
+}
+
+#signup {
+  height: 100%;
+}
+#signup .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  #signup .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signup .container {
+    width: 45%;
+  }
+}
+#signup .container form {
+  width: 100%;
+  display: grid;
+  gap: 0;
+}
+#signup .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+}
+@media (min-width: 768px) {
+  #signup .container form .content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+  }
+}
+#signup .container form .content #form-firstname {
+  grid-area: firstname;
+}
+#signup .container form .content #form-lastname {
+  grid-area: lastname;
+}
+#signup .container form .content #form-email {
+  grid-area: email;
+}
+#signup .container form .content #form-password {
+  grid-area: password;
+}
+#signup .container form .content #form-confirm {
+  grid-area: confirm;
+}
+#signup .container form .content #form-terms {
+  grid-area: terms;
+}
+#signup .container form .content #form-button {
+  grid-area: button;
+}
+
+#signin {
+  height: 100%;
+}
+#signin .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  #signin .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  #signin .container {
+    width: 45%;
+  }
+}
+#signin .container form {
+  width: 100%;
+  display: grid;
+  gap: 0;
+}
+#signin .container form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr;
+  grid-template-areas: "email" "password" " remember " "button" "hr" "forgot" "external";
+}
+#signin .container form .content #form-email {
+  grid-area: email;
+}
+#signin .container form .content #form-password {
+  grid-area: password;
+}
+#signin .container form .content #form-remember {
+  grid-area: remember;
+}
+#signin .container form .content #form-button {
+  grid-area: button;
+}
+#signin .container form .content #forgot-password {
+  padding: 1rem 0;
+  grid-area: forgot;
+  text-align: center;
+}
+#signin .container form .content hr {
+  grid-area: hr;
+}
+#signin .container form .content #external-signin {
+  grid-area: external;
+  display: flex;
+  gap: 2rem;
+}
+#signin .container form .content #external-signin a {
+  flex: 1;
+}
+
 footer {
   padding: 50px 0 30px 0;
   line-height: 160%;
@@ -644,4 +931,121 @@ footer .container .social-media {
   align-items: center;
   gap: 20px;
   margin-bottom: 30px;
+}
+
+#account-details {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 150px;
+  margin-bottom: 70px;
+}
+#account-details aside {
+  border-right: 1px solid #E2E5F1;
+  padding-right: 20px;
+}
+#account-details aside .profile-info {
+  margin: 20px;
+  text-align: center;
+}
+#account-details aside .profile-info h5 {
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+#account-details aside .profile-info p {
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px !important;
+}
+#account-details aside nav {
+  margin-top: 50px;
+  text-align: left;
+}
+#account-details aside nav a {
+  margin: 10px 0;
+  text-align: left;
+  justify-content: flex-start;
+}
+#account-details aside nav .btn-theme-s {
+  text-align: left;
+  justify-content: flex-start;
+}
+#account-details .details {
+  margin-top: 50px;
+  width: 100%;
+}
+#account-details .details .basic-info form {
+  padding: 1rem;
+}
+#account-details .details .basic-info form h5 {
+  color: #6366F1;
+}
+#account-details .details .basic-info form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+}
+#account-details .details .basic-info form .content #form-firstname {
+  grid-area: firstname;
+}
+#account-details .details .basic-info form .content #form-lastname {
+  grid-area: lastname;
+}
+#account-details .details .basic-info form .content #form-email {
+  grid-area: email;
+}
+#account-details .details .basic-info form .content #form-phone {
+  grid-area: phone;
+}
+#account-details .details .basic-info form .content #form-bio {
+  grid-area: bio;
+}
+#account-details .details .basic-info form .content #form-bio span {
+  color: #B4B7C9;
+  font-weight: 400;
+}
+#account-details .details .basic-info form .content .form-buttons {
+  grid-area: buttons;
+  margin: 20px 0;
+  display: flex;
+  gap: 20px;
+}
+#account-details .details .address-info {
+  margin-top: 30px;
+}
+#account-details .details .address-info form {
+  padding: 1rem;
+}
+#account-details .details .address-info form h5 {
+  color: #6366F1;
+}
+#account-details .details .address-info form .content {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "address1 address1" "address2 address2" "postal city" "buttons buttons";
+}
+#account-details .details .address-info form .content #form-addressline-1 {
+  grid-area: address1;
+}
+#account-details .details .address-info form .content #form-addressline-2 {
+  grid-area: address2;
+}
+#account-details .details .address-info form .content #form-addressline-2 span {
+  color: #B4B7C9;
+  font-weight: 400;
+}
+#account-details .details .address-info form .content #form-postalcode {
+  grid-area: postal;
+}
+#account-details .details .address-info form .content #form-city {
+  grid-area: city;
+}
+#account-details .details .address-info form .content .form-buttons {
+  grid-area: buttons;
+  margin: 20px 0;
+  display: flex;
+  gap: 20px;
 }

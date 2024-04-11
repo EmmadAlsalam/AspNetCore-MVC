@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -12,12 +12,62 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\scss\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="compilerconfig.json" />
+    <None Include="wwwroot\wwwroot\css\scss\components\_buttons.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\components\_forms.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\components\_links.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_base.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_buttons.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_colors.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_links.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_media.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\core\_typography.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_features.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_footer.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_header.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_isection3.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_showcase.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_signin.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_signup.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\sections\_switch.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\_components.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\_core.scss" />
+    <None Include="wwwroot\wwwroot\css\scss\_sections.scss" />
+    <None Include="wwwroot\wwwroot\css\site.scss" />
+    <None Include="wwwroot\wwwroot\Images\brand_1.svg" />
+    <None Include="wwwroot\wwwroot\Images\brand_2.svg" />
+    <None Include="wwwroot\wwwroot\Images\brand_3.svg" />
+    <None Include="wwwroot\wwwroot\Images\brand_4.svg" />
+    <None Include="wwwroot\wwwroot\Images\chat-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\data-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\MacBook Pro-dark.svg" />
+    <None Include="wwwroot\wwwroot\Images\MacBook Pro-light.svg" />
+    <None Include="wwwroot\wwwroot\Images\ManageYourWork.svg" />
+    <None Include="wwwroot\wwwroot\Images\mockup.svg" />
+    <None Include="wwwroot\wwwroot\Images\multi-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\noti-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\pres-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\section-icon.svg" />
+    <None Include="wwwroot\wwwroot\Images\showcase.svg" />
+    <None Include="wwwroot\wwwroot\Images\silicon-logo-icon-type.svg" />
+    <None Include="wwwroot\wwwroot\Images\silicon-logo-light_theme.svg" />
+    <None Include="wwwroot\wwwroot\js\site.js" />
+    <None Include="wwwroot\wwwroot\js\validation.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
