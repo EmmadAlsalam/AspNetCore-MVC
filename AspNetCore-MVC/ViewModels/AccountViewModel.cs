@@ -6,6 +6,6 @@ namespace AspNetCore_MVC.ViewModels;
 
 public class AccountViewModel
 {
-   
+
     public UserEntity User { get; set; } = null!;
 }

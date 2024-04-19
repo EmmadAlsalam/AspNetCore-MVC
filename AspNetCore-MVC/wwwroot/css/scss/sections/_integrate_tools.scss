@@ -1,0 +1,40 @@
+#integrate-tools {
+    padding: 4rem 0;
+
+    .container {
+        display: grid;
+        text-align: center;
+
+        .title {
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .tools {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+
+            .tool {
+                text-align: left;
+                border-radius: 8px;
+                padding: 2rem;
+                transition: 0.2s ease-in-out;
+
+
+                img {
+                }
+
+                p {
+                }
+
+                &:hover {
+                    box-shadow: 0 0 14px -4px rgba(0,0,0,0.2);
+                }
+            }
+        }
+    }
+}

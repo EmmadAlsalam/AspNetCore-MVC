@@ -106,8 +106,7 @@ public class AuthController : Controller
             var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
             if (result.Succeeded)
             {
-                //if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                //    return Redirect(returnUrl);
+
 
                 return RedirectToAction("Details", "Account");
             }

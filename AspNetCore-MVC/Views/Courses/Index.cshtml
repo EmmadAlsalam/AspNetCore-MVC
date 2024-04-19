@@ -1,0 +1,56 @@
+﻿@model CourseIndexViewModel
+@{
+    ViewData["Title"] = "Courses";
+}
+
+<section class="courses">
+    <div class="container">
+        <h1>Courses</h1>
+        <form id="form-filters">
+            <select>
+                <option>All categories</option>
+            </select>
+            <div class=" input-search-group">
+                <input id=" searchQuery" name="searchQuery" placeholder="Search courses" />
+                <i class="fa-regular fa-search"></i>
+            </div>            
+        </form>
+        <div class="course-items">
+            @if(Model.Courses != null)
+            {
+                @foreach(var course in Model.Courses)
+                {
+                    <a class="course" asp-action="Detalis" asp-controller="Courses" asp-route-id="@course.Id">
+                        @if(course.IsBestseller)
+                        {
+                            <div class="bestseller"> Best seller</div>
+                        }
+                        <button class="btn btn-circle bookmark" ><i class="fa-regular fa-bookmark"></i></button>
+                        <img src="~/Images/courses/@course.Image" alt="@course.Title" />
+                        <div class="content">
+                            <h5 class="title">@course.Title</h5>
+                            <p class="author">By @course.Auther</p>
+                            <div class="pricing">
+                                @if(!string.IsNullOrEmpty(course.DiscountPrise))
+                                {
+                                    <div class="discount"> @course.DiscountPrise</div>
+                                }
+                                <div class="price @(!string .IsNullOrEmpty(course.DiscountPrise)? "discount-enabled":"")">@course.Prise</div>
+                            </div>
+                            <div class="footer">
+                                <div class="hours">
+                                    <i class="fa-regular fa-clock"></i> @course.Hours
+                                </div>
+                                <div class="likes">
+                                    <i class="fa-regular fa-thumbs-up"></i> @course.LikeInProcent (@course.LiksInNumbers)
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+
+</section>

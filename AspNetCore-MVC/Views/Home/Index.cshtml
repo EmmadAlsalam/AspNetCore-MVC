@@ -2,6 +2,7 @@
 
 
 
+
     @await Html.PartialAsync("~/Views/Shared/Sections/_Showcase.cshtml", Model.Showcase)
 
 
@@ -12,5 +13,30 @@
 <div id="switch">
     @await Html.PartialAsync("~/Views/Shared/Sections/_Switch.cshtml")
 </div>
+
+<div id="manage-your">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_ManageWork.cshtml")
+</div>
+
+<div id="appas">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_DownloadApp.cshtml")
+</div>
+
+
+<div id="integrate-tools">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_IntegrateTools.cshtml")
+</div>
+
+
+<div id="subscribe">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_SubscribeToNewsletter.cshtml", Model.Subscribe)
+</div>
+
+
+
+
+
+
+
 
 

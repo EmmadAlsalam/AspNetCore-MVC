@@ -14,11 +14,28 @@
         }
 
         <aside>
-            <div class="profile-info">
-                <img src="~/images/@Model.ProfileInfo" alt="@($" Account Details for {Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}'s profile")" />
-                <h5>@($"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}")</h5>
-                <p>@Model.ProfileInfo.Email</p>
-            </div>
+            @inject UserManager<UserEntity> UserManager
+            @{
+                var user = await UserManager.GetUserAsync(User);
+            }
+            @if (user != null)
+            {
+                <section class="account-profile">
+                    <div class="profile">
+                        <div class="profile-image">
+                            <img src="~/Images/profiles/@user.ProfileImage" alt="@user.FirstName @user.LastName" />
+                            <form enctype="multipart/form-data" method="post" asp-action="UploadProfileImage" asp-controller="Account">
+                                <input id="fileUploader" type="file" name="file" hidden />
+                                <label for="fileUploader" class="btn-gray btn-circle btn-circle-sm"> <i class="fa-regular fa-refresh"></i></label>
+                            </form>
+                            <div class="profile-info">
+                                <h3 class="displayname">@user.FirstName @user.LastName</h3>
+                                <p>@user.Email</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            }
 
             <nav>
                 <a class="btn-theme-s" asp-controller="Account" asp-action="Details"> <i class="fa-sharp fa-regular fa-gear"></i> Account Details</a>
@@ -64,31 +81,15 @@
                             <span asp-validation-for="BasicInfoForm.Bio"></span>
                             <input asp-for="BasicInfoForm.Bio" />
                         </div>
-
-
-
-                        
-
-
-
-                            <div class="form-buttons">
+                             <div class="form-buttons">
                                 <button class="btn-gray" type="reset">Cancel</button>
                                 <button class="btn-theme" type="submit">Save changes</button>
                              </div>
 
-                        </div>
+                        </div>                   
 
-                    
-
-
-
-                    </form>
-                  
-
+                    </form>               
                 </section>
-
-                <hr />
-                @* Address section *@
 
             <section class="address-info">
                 <form id="AddressInfoForm" method="post" asp-controller="Account" asp-action="Details">
@@ -100,46 +101,21 @@
                             <span asp-validation-for="AddressInfoForm.AddressLine_1"></span>
                             <input asp-for="AddressInfoForm.AddressLine_1" />
                         </div>
-
-
-
                         <div id="form-addressline2" class="input-group">
                             <label asp-for=AddressInfoForm.AddressLine_2></label>
                             <span asp-validation-for="AddressInfoForm.AddressLine_2"></span>
                             <input asp-for="AddressInfoForm.AddressLine_2" />
                         </div>
-
-
-
                         <div id="form-postalcode" class="input-group">
                             <label asp-for=AddressInfoForm.PostalCode></label>
                             <span asp-validation-for="AddressInfoForm.PostalCode"></span>
                             <input asp-for="AddressInfoForm.PostalCode" />
                         </div>
-
-
-
                         <div id="form-city" class="input-group">
                             <label asp-for=AddressInfoForm.City></label>
                             <span asp-validation-for="AddressInfoForm.City"></span>
                             <input asp-for="AddressInfoForm.City" />
                         </div>
-
-
-
-@*                         <div id="form-bio" class="input-group">
-                            <label asp-for=BasicInfo.Bio></label>
-                            <span asp-validation-for="BasicInfo.Bio"></span>
-                            <input asp-for="BasicInfo.Bio" />
-                        </div> *@
-
-
-@* 
-                        <div id="form-bio" class="input-group">
-                            <label>Bio <span>(optional)</span> </label>
-                            <textarea name="bio" placeholder="Add a short bio.."></textarea>
-                        </div> *@
-
                         <div class="form-buttons">
                             <button class="btn-gray" type="reset">Cancel</button>
                             <button class="btn-theme" type="submit">Save changes</button>
@@ -147,17 +123,11 @@
 
                     </div>
 
-
-
-
-
                 </form>
-
 
             </section>
 
             </div>
-
 
     </section>
 </div>

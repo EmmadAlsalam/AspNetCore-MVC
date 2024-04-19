@@ -1,0 +1,37 @@
+.manage-work {
+    padding: 4rem 0;
+
+    .container {
+        display: flex;
+        align-items: center;
+
+
+        img {
+            flex: 1;
+        }
+
+        .content {
+            flex: 1;
+            margin-left: 80px;
+
+            ul {
+                list-style: none;
+                margin: 2rem 0;
+                padding: 0;
+
+                li {
+                    margin-bottom: 10px;
+
+                    i {
+                        color: var(--color-theme);
+                        margin-right: 8px;
+                    }
+                }
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}

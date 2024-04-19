@@ -1,0 +1,21 @@
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.container {
+    width: 1320px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    &.container-fixed-500 {
+        width: 500px;
+    }
+
+    &.container-fixed-700 {
+        width: 700px;
+    }
+}

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Net.NetworkInformation;
+using System.Security.Principal;
 
 namespace AspNetCore_MVC.Controllers;
 [Authorize]
@@ -23,7 +24,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
 
     public async Task<IActionResult> Details()
     {
-        //var claims = HttpContent.User.Identites.FirstOrDefult();
+       
 
 
         var viewModel = new AccountDetailsViewModel();
@@ -43,9 +44,9 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
 
     public async Task<IActionResult> Details(AccountDetailsViewModel viewModel)
     {
-        if (viewModel.BasicInfoForm !=null)
+        if (viewModel.BasicInfoForm != null)
         {
-            if (viewModel.BasicInfoForm .FirstName !=null && viewModel.BasicInfoForm.LastName != null && viewModel.BasicInfoForm.Email != null) 
+            if (viewModel.BasicInfoForm.FirstName != null && viewModel.BasicInfoForm.LastName != null && viewModel.BasicInfoForm.Email != null)
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null)
@@ -54,7 +55,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
                     user.LastName = viewModel.BasicInfoForm.LastName;
                     user.Email = viewModel.BasicInfoForm.Email;
                     user.PhoneNumber = viewModel.BasicInfoForm.Phone;
-                     var result= await _userManager.UpdateAsync(user);
+                    var result = await _userManager.UpdateAsync(user);
                     if (!result.Succeeded)
                     {
                         ModelState.AddModelError("AlreadyExists", "Samthing was wrong,,, Unble to save data");
@@ -63,7 +64,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
                     }
                 }
             }
-            
+
 
         }
         if (viewModel.AddressInfoForm != null)
@@ -76,7 +77,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
                     var address = await _addressService.GetAddressAsync(user.Id);
                     if (address != null)
                     {
-                        address.StreetName = viewModel.AddressInfoForm.AddressLine_1;
+                        address.AddressLine_1 = viewModel.AddressInfoForm.AddressLine_1;
                         address.PostalCode = viewModel.AddressInfoForm.PostalCode;
                         address.City = viewModel.AddressInfoForm.City;
 
@@ -93,7 +94,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
                         address = new AddressEntity
                         {
                             UserId = user.Id,
-                            StreetName = viewModel.AddressInfoForm.AddressLine_1,
+                            AddressLine_1 = viewModel.AddressInfoForm.AddressLine_1,
                             PostalCode = viewModel.AddressInfoForm.PostalCode,
                             City = viewModel.AddressInfoForm.City
                         };
@@ -152,11 +153,11 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
         var user = await _userManager.GetUserAsync(User);
         return new ProfileInfoViewModel
         {
-   
+
             FirstName = user!.FirstName,
             LastName = user.LastName,
             Email = user.Email!,
-         
+
 
         };
     }
@@ -171,14 +172,14 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
             {
                 return new AddressInfoViewModel
                 {
-                    AddressLine_1 = address.StreetName,
+                    AddressLine_1 = address.AddressLine_1,
                     PostalCode = address.PostalCode,
                     City = address.City
                 };
             }
         }
 
-        // Om användaren är null eller om adressen inte finns, returnera en tom AddressInfoViewModel
+       
         return new AddressInfoViewModel();
     }
 
@@ -209,4 +210,28 @@ public class AccountController(UserManager<UserEntity> userManager, AddressServi
     }
     #endregion
 
+
+
+    [HttpPost]
+    public async Task<IActionResult> UploadProfileImage(IFormFile file)
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null && file != null && file.Length != 0)
+        {
+            var filename = $"p_{user.Id}_{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/uploads/profiles", filename);
+
+            using var fs = new FileStream(filePath, FileMode.Create);
+            await file.CopyToAsync(fs);
+
+            user.ProfileImage = filename;
+            await _userManager.UpdateAsync(user);
+        }
+        else
+        {
+            TempData["StatusMessage"] = "Unable to upload profile image.";
+        }
+        return RedirectToAction("Details", "Account");
+    }
 }

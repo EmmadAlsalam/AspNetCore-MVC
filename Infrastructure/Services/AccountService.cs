@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Contexts;
 using Infrastructure.Entites;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+
 
 namespace Infrastructure.Services;
 
@@ -22,16 +22,16 @@ public class AccountService
 
         if (existingUser == null)
         {
-            // Användaren hittades inte
+            
             return false;
         }
 
-        // Uppdatera användarens egenskaper baserat på inkommande user-objekt
+        
         existingUser.FirstName = user.FirstName;
         existingUser.LastName = user.LastName;
         existingUser.Email = user.Email;
 
-        // Uppdatera användaren i databasen
+       
         var result = await _userManager.UpdateAsync(existingUser);
 
         return result.Succeeded;
