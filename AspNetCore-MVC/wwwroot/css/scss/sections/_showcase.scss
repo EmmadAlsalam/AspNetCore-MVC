@@ -13,7 +13,7 @@
         z-index: -1;
         width: 100%;
 
-        @include lg{
+        .include lg{
             width: 45%;
         }
     }
@@ -21,7 +21,7 @@
     .container{
         height: 100%;
         
-        @include lg{
+        .include lg{
             position: absolute;
             left: 0;
             right: 0;
@@ -33,7 +33,7 @@
             width: 100%;
             text-align: center;
 
-            @include lg {
+            .include lg {
                 margin-top: 100px;
                 width: 40%;
                 text-align: left;
@@ -50,9 +50,9 @@
             }
             p{
                 margin:  20px 0 40px 0;
-                @include text-m;
+                .include text-m;
 
-                @include lg {
+                .include lg {
                     margin : 40px 0 50px 0;
                     @include text-lg;
                 }
@@ -71,7 +71,7 @@
                 display:  none;
                 gap: 30px;
 
-                @include lg {
+                .include lg {
                     display: flex;
                 }
                 img {

@@ -11,8 +11,13 @@
     
 </head>
 <body>
-   
+
     <header>
+
+        @{
+            var themeMode = Context.Request.Cookies["ThemeMode"] ?? "light";
+            var isDark = (themeMode == "dark") ? true : false;
+        }
         @inject SignInManager<UserEntity> _signInManager
         <div class="container">
             <a id="logo" asp-action="Index" asp-controller="Home">
@@ -43,8 +48,8 @@
             <div  class="btn-switch" > 
                 <label> Light</label>
                 <label class="switch" for="switch-mode">
-                    <input type="checkbox" id="switch-mode">
-                    <div class="slider round"></div>
+                    <input type="checkbox" id="switch-mode"  cheched="@isDark">
+                    <span class="slider round"></span>
                 </label>
                 <label>Dark</label>
             </div>

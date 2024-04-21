@@ -1725,3 +1725,100 @@ footer .container .social-media {
 #subscribe .container form .form-email .input-group input {
   padding-left: 50px;
 }
+.courses {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+.courses .container #form-filters {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+.courses .container .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.courses .container .course-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.courses .container .course {
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 0 14px -4px var(--color-gray-500);
+  color: var(--color-gray-700);
+}
+.courses .container .course:hover {
+  box-shadow: 0 0 14px -4px var(--color-gray-900);
+}
+.courses .container .course .bestseller {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--color-success-dark);
+  color: var(--color-white);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+.courses .container .course .bookmark {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 999;
+}
+.courses .container .course img {
+  width: 100%;
+}
+.courses .container .course .content {
+  padding: 1rem 2rem;
+}
+.courses .container .course .content .title {
+  font-size: 20px;
+}
+.courses .container .course .content .author {
+  font-size: 14px;
+  margin: 0.5rem 0;
+}
+.courses .container .course .content .pricing {
+  display: flex;
+  gap: 1rem;
+  font-size: 18px;
+  font-weight: 600;
+}
+.courses .container .course .content .pricing .discount {
+  color: var(--color-danger-dark);
+  font-size: 18px;
+  font-weight: 600;
+}
+.courses .container .course .content .pricing .original {
+  color: var(--color-theme);
+  font-size: 18px;
+  font-weight: 600;
+}
+.courses .container .course .content .pricing .discount-enabled {
+  color: var(--color-gray-600);
+  text-decoration: line-through;
+  font-size: 18px;
+  font-weight: 400;
+}
+.courses .container .course .content .footer {
+  color: var(--color-gray-600);
+  border-top: 1px solid var(--color-gray-400);
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+.courses .container .course .content .footer .hours i {
+  margin-right: 5px;
+}
+.courses .container .course .content .footer .likes i {
+  margin-right: 5px;
+}
